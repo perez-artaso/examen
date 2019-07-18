@@ -1,0 +1,16 @@
+<div class="grid-container">
+  <div class="grid-x grid-margin-x">
+    <fieldset class="fieldset">
+      <legend>
+        Inscripcion
+      </legend>
+      <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
+      <select [formControl]="inscriptionForm.controls['course']">
+        <option value="0" disabled>Seleccione Una Materia</option>
+        <option *ngFor="let course of courses" [ngValue]="course.id">{{course.name}}</option>
+      </select>
+      <button class="button primary" type="submit">Inscribirme</button>
+    </form>
+    </fieldset>
+  </div>
+</div>

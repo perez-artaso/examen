@@ -1,0 +1,8 @@
+<div class="grid-container">
+  <div class="grid-x align-middle align-center">
+    <app-type-selector (typeSelected)="typeSelected($event)"></app-type-selector>
+  </div>
+  <div class="grid-x align-middle align-center">
+      <app-list [users]="users"></app-list>
+  </div>
+</div>

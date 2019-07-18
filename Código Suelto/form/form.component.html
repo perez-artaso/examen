@@ -1,0 +1,45 @@
+<div class="grid-container">
+  <div class="grid-x grid-margin-x align-middle align-center formContainer">
+    <div class="callout slab">
+      <form [formGroup]="newSomethingForm" (ngSubmit)="onSubmit()">
+
+        <fieldset class="fieldset">
+          <legend>Nuevo Cliente</legend>
+          <input [formControl]="newSomethingForm.controls['name']" type="text" placeholder="Nombre" id="name">
+          <input [formControl]="newSomethingForm.controls['email']" type="text" placeholder="Email" id="mail">
+          <input [formControl]="newSomethingForm.controls['age']" type="number" id="age" placeholder="Edad" min="1" max="110">
+          <input [formControl]="newSomethingForm.controls['password']" type="password" placeholder="Contraseña" id="password">
+          <input [formControl]="newSomethingForm.controls['confirmPassword']" type="password" placeholder="Confirme Su Contraseña" id="confirmPassword">
+          <fieldset class="fieldset">
+            <legend>Tipo</legend>
+            <input [formControl]="newSomethingForm.controls['type']" value="1" type="radio" name="type" id="type1"><Label>Tipo1</Label>
+            <input [formControl]="newSomethingForm.controls['type']" value="2" type="radio" name="type" id="type2"><Label>Tipo2</Label>
+            <input [formControl]="newSomethingForm.controls['type']" value="3" type="radio" name="type" id="type3"><Label>Tipo3</Label>
+          </fieldset>
+        </fieldset>
+        <fieldset class="fieldset">
+          <legend>Fecha</legend>
+          <input [formControl]="newSomethingForm.controls['date']" type="date">
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend>Un Checkbox</legend>
+          <input [formControl]="newSomethingForm.controls['checkbox1']" type="checkbox" id="check1"> <label>CheckBox1</label>
+          <input [formControl]="newSomethingForm.controls['checkbox2']" type="checkbox" id="check2"> <label>CheckBox2</label>
+        </fieldset>
+
+        <div class="grid-x grid-margin-x">
+          <button type="submit" class="cell button primary">Aceptar</button>
+          <button class="cell button alert" (click)="cleanFormFields()">Limpiar</button>
+        </div>
+      </form>
+      <div class="callout success" id="successMessages" hidden>
+        <p>- Cliente dado de alta con éxito </p>
+      </div>
+      <div class="callout alert" id="alertMessages" hidden>
+          <p *ngFor="let alertMessage of alertMessages"> {{ alertMessage }} </p>
+      </div>
+    </div>
+  </div>
+
+</div>

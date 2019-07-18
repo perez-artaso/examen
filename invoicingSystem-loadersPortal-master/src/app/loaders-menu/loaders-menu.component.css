@@ -1,0 +1,12 @@
+.buttonIcon {
+    padding: 5%;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: space-around;
+    justify-content: center;
+    justify-items: center;
+}

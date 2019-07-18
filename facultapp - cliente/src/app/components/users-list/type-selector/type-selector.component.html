@@ -1,0 +1,12 @@
+<div class="grid-container">
+  <div class="grid-x grid-margin-x align-middle align-center">
+    <form [formGroup]="typeSelectorForm">
+      <fieldset class="fieldset">
+        <legend>Tipo de Usuario</legend>
+        <input [formControl]="typeSelectorForm.controls['type']" type="radio" id="student" value="1"><label for="student">Alumno</label>
+        <input [formControl]="typeSelectorForm.controls['type']" type="radio" id="teacher" value="2"><label for="teacher">Profesor</label>
+        <input [formControl]="typeSelectorForm.controls['type']" type="radio" id="admin" value="3"><label for="admin">Administrador</label>
+      </fieldset>
+    </form>
+  </div>
+</div>

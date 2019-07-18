@@ -1,0 +1,46 @@
+<div *ngIf="!passwordSuccessfullyChanged" class="grid-container changePassForm">
+  <div class="callout">
+      <form [formGroup]="changePassForm" (ngSubmit)="onSubmit()">
+          <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+              <div class="cell small-12">
+                <label>
+                  Contraseña
+                  <input [formControl]="changePassForm.controls['password']" type="password">
+                </label>
+              </div>
+              <div class="cell small-12">
+                  <label>
+                    Nueva Contraseña
+                    <input [formControl]="changePassForm.controls['newPassword']" type="password">
+                  </label>
+                </div>
+                <div class="cell small-12">
+                  <label>
+                    Repita Su Nueva Contraseña
+                    <input [formControl]="changePassForm.controls['newPasswordRepetition']" type="password">
+                  </label>
+                </div>
+                <div class="cell small-12">
+                  <button type="submit" class="cell primary button" [disabled]="buttonBlocked"> Solicitar </button>
+                </div>
+            </div>
+          </div>
+        </form>
+  </div>
+
+  <div hidden id="userFeedback" class="grid-container userFeedback">
+      <div class="callout alert alertMessage">
+        <i class="fas fa-exclamation-triangle alertIcon"></i>
+        <p>{{ validationMessage }}</p>
+      </div>
+  </div>
+</div>
+
+<div hidden class="grid-container" id="succesMessage">
+  <div class="callout success text-center">
+    <i class="far fa-check-circle"></i>
+    <br>
+    <h1>Contraseña Modificada Con Éxito</h1>
+  </div>
+</div>

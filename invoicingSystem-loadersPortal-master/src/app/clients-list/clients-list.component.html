@@ -1,0 +1,77 @@
+<div *ngIf="onDelete" class="grid-container">
+  <div class="grid-container">
+      <div class="deletingConfirmation">
+          <div id="dinamicModalContainer">
+              <h1 class="roboto">Confirmar Acción</h1>
+              <p class="roboto">
+                Está a punto de eliminar de los registros al cliente cuyos datos son: 
+              </p>
+              <div class="callout roboto">
+                <ul>
+                  <li>
+                    Id: {{ clientToDelete.id }}
+                  </li>
+                  <li>
+                    Nombre: {{ clientToDelete.name }}
+                  </li>
+                  <li>
+                    E-mail: {{ clientToDelete.mail }}
+                  </li>
+                </ul>
+              </div>
+          </div>
+          <div class="grid-x">
+            <div class="cell small-12 text-right">
+              <button class="button primary modalButton" (click)="DeleteClient()">Aceptar</button>
+              <button class="button alert modalButton" (click)="CloseDeletingConfirmationMessage()">Cancelar</button>
+            </div>
+          </div>
+        </div>
+  </div>  
+</div>
+
+<div *ngIf="!onDelete">
+    <div class="grid-container searchBar">
+        <div class="input-group">
+          <input [(ngModel)]="searchBarInput" class="input-group-field" type="text" (input)="onSearch()">
+          <span class="input-group-label"><i class="fas fa-search"></i></span>
+        </div>
+      </div>
+    <table *ngIf="noSearch" class="text-center striped">
+        <thead>
+          <th class="text-center">Id (SAP)</th>
+          <th class="text-center">Nombre</th>
+          <th class="text-center">E-mail</th>
+          <th class="text-center">Extra Ids</th>
+          <th class="text-center">Eliminar</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clientList">
+            <td>{{ client.id }}</td>
+            <td>{{ client.name }}</td>
+            <td>{{ client.mail }}</td>
+            <td>{{ client.extraIds }}</td>
+            <td class="text-center"><button class="button alert" (click)="ToggleDeleteModal(client.id, client.name, client.mail)"><i class="fas fa-trash-alt"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <table *ngIf="!noSearch" class="text-center">
+          <thead>
+            <th class="text-center">Id (SAP)</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">E-mail</th>
+            <th class="text-center">Extra Ids</th>
+            <th class="text-center">Eliminar</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let client of filteredList">
+              <td>{{ client.id }}</td>
+              <td>{{ client.name }}</td>
+              <td>{{ client.mail }}</td>
+              <td>{{ client.extraIds }}</td>
+              <td class="text-center"><button class="button alert" data-toggle="confirmationModal" (click)="ToggleDeleteModal(client.id, client.name, client.mail)"><i class="fas fa-trash-alt"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+</div>

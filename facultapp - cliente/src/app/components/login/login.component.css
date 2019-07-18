@@ -1,0 +1,18 @@
+.loginForm {
+    margin-top: 8%;
+    width: 50%;
+}
+
+
+.userFeedback {
+    width: 50%;
+}
+
+.alertIcon {
+    padding: 2%;
+}
+
+.alertMessage {
+    display: flex;
+    justify-content: center;
+}

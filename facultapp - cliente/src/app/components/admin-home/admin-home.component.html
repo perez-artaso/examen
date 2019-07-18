@@ -1,0 +1,60 @@
+<div class="grid-container" style="padding: 2%;">
+  <div class="grid-x align-center">
+    <ul class="menu">
+      <li>
+        <a (click)="newCourseSelected()">Nueva Materia</a>
+      </li>
+      <li>
+        <a (click)="readCoursesSelected()">Ver Materias</a>
+      </li>
+      <li>
+        <a (click)="readUsersSelected()">Ver Usuarios</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div *ngIf="newCourse" class="grid-container">
+    <div class="grid-x grid-margin-x align-middle align-center formContainer">
+      <div class="callout slab">
+        <form [formGroup]="newSomethingForm" (ngSubmit)="onSubmit()">
+  
+          <fieldset class="fieldset">
+            <legend>Nueva Materia</legend>
+            <input [formControl]="newSomethingForm.controls['name']" type="text" placeholder="Nombre" id="name">
+            <input [formControl]="newSomethingForm.controls['quarter']" type="number" min="1" max="2" placeholder="Cuatrimestre" id="quarter">
+            <input [formControl]="newSomethingForm.controls['room']" type="number" id="room" placeholder="Cupo">
+            <select [formControl]="newSomethingForm.controls['teacher']" id="teacher">
+              <option value="0" disabled>Docente A Cargo</option>
+              <option *ngFor="let teacher of teachers" [ngValue]="teacher.id">{{teacher.email}}</option>
+            </select>
+          </fieldset>
+  
+          <div class="grid-x grid-margin-x">
+            <button type="submit" class="cell button primary">Aceptar</button>
+            <button class="cell button alert" (click)="cleanFormFields()">Limpiar</button>
+          </div>
+        </form>
+        <div class="callout success" id="successMessages" hidden>
+          <p>- Materia dada de alta con éxito </p>
+        </div>
+        <div class="callout alert" id="alertMessages" hidden>
+            <p *ngFor="let alertMessage of alertMessages"> {{ alertMessage }} </p>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+  <div *ngIf="readCourses" class="grid-container">
+    <div class="grid-x grid-margin-x align-middle align-center">
+      <app-courses-list></app-courses-list>
+    </div>
+  </div>
+
+  <div *ngIf="readUsers" class="grid-container">
+    <div class="grid-x grid-margin-x align-middle align-center">
+      <app-users-list></app-users-list>
+    </div>
+  </div>
+  

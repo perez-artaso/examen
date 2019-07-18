@@ -1,0 +1,53 @@
+<form [formGroup]="newClientForm" (ngSubmit)="onSubmit()">
+  <div class="grid-container">
+    <div class="callout">
+        <div class="grid-x grid-margin-x">
+            <div class="cell small-6">
+                <div class="input-group">
+                    <span class="input-group-label"><i class="fas fa-id-card-alt"></i></span>
+                    <input [formControl]="newClientForm.controls['id']" class="input-group-field" type="text" placeholder="Id (SAP)">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-label"><i class="fas fa-user-tie"></i></span>
+                  <input [formControl]="newClientForm.controls['name']" class="input-group-field" type="text" placeholder="Nombre">
+                </div>
+            </div>
+            <div class="cell small-6">
+                <div class="input-group">
+                    <span class="input-group-label"><i class="fas fa-envelope"></i></span>
+                    <input [formControl]="newClientForm.controls['mail']" class="input-group-field" type="text" placeholder="Mail">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-label"><i class="fas fa-id-badge"></i></span>
+                    <input [formControl]="newClientForm.controls['extraIds']" class="input-group-field" type="text" placeholder="Extra Id's">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid-x grid-margin-x align-center">
+        <button type="submit" class="button primary">Cargar Usuario</button>
+    </div>
+  </div>
+</form>
+
+<div id="userErrorFeedback" class="grid-container alertContainer" hidden>
+    <div class="callout alert grid-x align-center-middle text-center">
+        <div class="cell small-2">
+            <i class="far fa-times-circle messageIcon"></i>
+        </div>
+        <div class="cell small-10 text-left">
+            {{ validationMessage }}
+        </div>
+    </div>
+</div>
+
+<div id="userSuccessFeedback" class="grid-container alertContainer" hidden>
+    <div class="callout success grid-x align-center-middle text-center">
+        <div class="cell small-2">
+            <i class="far fa-check-circle messageIcon"></i>
+        </div>
+        <div class="cell small-10 text-left">
+            El cliente fue cargado con éxito.
+        </div>
+    </div>
+</div>

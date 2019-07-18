@@ -1,0 +1,121 @@
+<div class="grid-container generalContainer">
+  <div *ngIf="!noInvoices" class="grid-x grid-margin-x">
+    <div class="cell medium-3 align-self-middle tabsContainer">
+      <div class="grid-x grid-padding-x">
+        <div *ngIf="!zeroInvoices" [ngClass]="{'selected': invoicesSelected}" class="cell callout roboto tab" (click)="ChangeTab(1)">
+          Facturas
+        </div>
+        <div *ngIf="!zeroCreditNotes" [ngClass]="{'selected': creditNotesSelected}" class="cell callout roboto tab" (click)="ChangeTab(2)">
+          Notas De Crédito
+        </div>
+        <div *ngIf="!zeroDebitNotes" [ngClass]="{'selected': debitNotesSelected}" class="cell callout roboto tab" (click)="ChangeTab(3)">
+          Notas De Débito
+        </div>
+      </div>
+    </div>
+    <div class="cell medium-9">
+        <div *ngIf="invoicesSelected" id="invoices">
+          <table class="text-center">
+            <thead>
+              <th class="text-center">
+                Nro.
+              </th>
+              <th class="text-center">
+                Fecha De Emisión
+              </th>
+              <th class="text-center">
+                Descargar
+              </th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let invoice of invoices">
+                <td class="text-center">
+                    {{ invoice.invoiceNumber }}
+                  </td>
+                  <td class="text-center">
+                    {{ invoice.emissionDate | onlyDate}}
+                  </td>
+                  <td class="text-center">
+                    <i (click)="RequestInvoice(invoice.invoiceId)" class="far fa-file-pdf" style="font-size: 200%"></i>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="creditNotesSelected" id="creditNotes">
+          <table class="text-center">
+            <thead>
+              <th class="text-center">
+                Nro.
+              </th>
+              <th class="text-center">
+                Fecha De Emisión
+              </th>
+              <th class="text-center">
+                Descargar
+              </th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let creditNote of creditNotes">
+                <td class="text-center">
+                    {{ creditNote.invoiceNumber }}
+                  </td>
+                  <td class="text-center">
+                    {{ creditNote.emissionDate | onlyDate}}
+                  </td>
+                  <td class="text-center">
+                    <i (click)="RequestInvoice(creditNote.invoiceId)" class="far fa-file-pdf" style="font-size: 200%"></i>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="debitNotesSelected" id="debitNotes">
+          <table class="text-center">
+            <thead>
+              <th class="text-center">
+                Nro.
+              </th>
+              <th class="text-center">
+                Fecha De Emisión
+              </th>
+              <th class="text-center">
+                Descargar
+              </th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let debitNote of debitNotes">
+                <td class="text-center">
+                    {{ debitNote.invoiceNumber }}
+                  </td>
+                  <td class="text-center">
+                    {{ debitNote.emissionDate | onlyDate}}
+                  </td>
+                  <td class="text-center">
+                    <i (click)="RequestInvoice(debitNote.invoiceId)" class="far fa-file-pdf" style="font-size: 200%"></i>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+  <div class="noInvoiceMessageContainer hide-for-small-only">
+    <div *ngIf="noInvoices" class="grid-x grid-margin-x text-center">
+      <div class="callout alert text-center">
+        <i class="fas fa-file-invoice-dollar"></i>
+        <br>
+        <h1 class="noInvoiceTitle roboto">Usted No Tiene Facturas Cargadas Aún</h1>
+      </div>
+    </div>
+  </div>
+  <div class="noInvoiceMessageSmallContainer show-for-small-only">
+    <div *ngIf="noInvoices" class="grid-x grid-margin-x text-center">
+      <div class="callout alert text-center">
+        <i class="fas fa-file-invoice-dollar"></i>
+        <br>
+        <h1 class="noInvoiceTitle roboto">Usted No Tiene Facturas Cargadas Aún</h1>
+      </div>
+    </div>
+  </div>
+</div>

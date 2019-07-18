@@ -1,0 +1,28 @@
+<div class="grid-container">
+    <div class="grid-x grid-margin-x align-center align-middle tableContainer">
+      <table>
+        <thead>
+          <th class="text-center">Nombre</th>
+          <th class="text-center">Cuatrimestre</th>
+          <th class="text-center">Cupo</th>
+          <th class="text-center">Profesor</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of courses">
+            <td class="text-center">
+              {{ course.name }}
+            </td>
+            <td class="text-center">
+                {{ course.quarter }}
+              </td>
+              <td class="text-center">
+                  {{ course.room }}
+                </td>
+                <td class="text-center">
+                    {{ course.teacher }}
+                  </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

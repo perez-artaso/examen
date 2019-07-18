@@ -1,0 +1,11 @@
+<div class="top-bar">
+        <div *ngIf="activeSession" class="top-bar-left">
+                <a (click)="logOut()">
+                    Cerrar Sesión
+                </a>
+            </div>
+    <div class="top-bar-right">
+        <app-user-name></app-user-name>
+    </div>
+</div>
+<router-outlet></router-outlet>

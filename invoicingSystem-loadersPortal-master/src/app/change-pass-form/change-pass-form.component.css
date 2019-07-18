@@ -1,0 +1,26 @@
+.changePassForm {
+    margin-top: 2%;
+    width: 50%;
+  }
+  
+    
+  .userFeedback {
+    width: 50%;
+  }
+  
+  .alertIcon {
+    padding: 2%;
+  }
+  
+  .alertMessage {
+    display: flex;
+    justify-content: center;
+  }
+
+  .far {
+    font-size: 1000%;
+  }
+
+  .success {
+    margin-top: 8%;
+  }

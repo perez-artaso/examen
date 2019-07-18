@@ -1,0 +1,98 @@
+<div class="grid-container" id="deleteModal" hidden>
+  <div class="grid-x callout success">
+    Está a punto de eliminar al siguiente usuario:
+  </div>
+  <div class="grid-x grid-margin-x callout alert">
+    <div class="grid-x">
+        <ul>
+            <li>
+              Nombre: {{ selectedUser.name }}
+            </li>
+            <li>
+              Email: {{ selectedUser.email }}
+            </li>
+            <li>
+              Tipo: {{ selectedUser.type }}
+            </li>
+          </ul>
+      </div>
+  </div>
+      <button class="button primary">Confirmar</button>
+      <button class="button alert" (click)="deletingCancelation()">Cancelar</button>
+</div>
+
+<div class="grid-container" id="updateForm" hidden>
+  <div class="grid-x grid-margin-x align-center">
+    <form [formGroup]="updateForm">
+      <fieldset class="fieldset">
+        <legend>Modificación</legend>
+        <input [formControl]="updateForm.controls['name']" type="text" placeholder="Nombre">
+        <input [formControl]="updateForm.controls['email']" type="text" placeholder="Email">
+        <fieldset class="fieldset">
+          <legend>Materias</legend>
+            <input [formControl]="updateForm.controls['anatomy']" type="checkbox" id="anatomia" value="0"><label for="anatomia">Anatomia</label>
+            <input [formControl]="updateForm.controls['geography']" type="checkbox" id="geografia" value="1"> <label for="geogrfia">Geografía</label>
+        </fieldset>
+        <fieldset class="fieldset">
+          <legend>Tipo</legend>
+          <input [formControl]="updateForm.controls['type']" type="radio" value="0" id="alumno"><label for="alumno">Alumno</label>
+          <input [formControl]="updateForm.controls['type']" type="radio" value="1" id="profesor"><label for="profesor">Profesor</label>
+          <input [formControl]="updateForm.controls['type']" type="radio" value="2" id="admin"><label for="admin">Administrador</label>
+        </fieldset>
+
+        <div class="grid-x align-right grid-margin-x">
+            <button class="button primary" type="submit">Modificar</button>
+            <button class="button alert" (click)="updatingCancelation()">Cancelar</button>
+        </div>
+
+      </fieldset>
+      
+    </form>
+  </div>
+</div>
+
+<div class="grid-x grid-margin-x align-center">
+  <div class="grid-x">
+      <table>
+          <thead>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Anatomía</th>
+            <th class="text-center">Geografía</th>
+            <th class="text-center">Tipo</th>
+            <th class="text-center">Modificar</th>
+            <th class="text-center">Eliminar</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td class="text-center">
+                {{user.name}}
+              </td>
+              <td class="text-center">
+                  {{user.email}}
+              </td>
+              <td class="text-center">
+                  {{user.anatomy}}
+              </td>
+              <td class="text-center">
+                  {{user.geography}}
+              </td>
+              <td class="text-center">
+                  {{user.type}}
+              </td>
+              <td class="text-center">
+                <button class="primary button" (click)="onUpdateUser(user)">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+              </td>
+              <td class="text-center">
+                <button class="alert button" (click)="onDeleteUser(user)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+    
+</div>

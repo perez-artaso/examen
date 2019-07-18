@@ -1,0 +1,53 @@
+.generalContainer {
+    margin-top: 1%;
+}
+
+.noInvoiceMessageContainer {
+    display: flex;
+    width: 600px;
+    margin: 0px auto 0px auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 50%;
+    margin-top: 10%;
+}
+
+.noInvoiceMessageSmallContainer {
+    display: flex;
+    width: 100px;
+    margin: 0px auto 0px auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 50%;
+    margin-top: 10%;
+}
+
+.fas {
+    font-size: 800%;
+    padding: 5%;
+}
+
+.noInvoiceTitle {
+    font-size: 500%;
+}
+
+.far:active {
+    transform: scale(0.8);
+}
+
+.selectedTab {
+    background-color: rgb(228, 228, 228);
+}
+
+.tab {
+    font-weight: 600;
+}
+
+.tab:active {
+    transform: scale(0.95);
+}
+
+.selected {
+    background-color: cornflowerblue;
+    font-weight: 900;
+}

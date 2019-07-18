@@ -1,0 +1,31 @@
+<div class="grid-container">
+  <div class="grid-x grid-margin-x align-middle align-center formContainer">
+    <div class="callout slab">
+      <form [formGroup]="newSomethingForm" (ngSubmit)="onSubmit()">
+
+        <fieldset class="fieldset">
+          <legend>Nuevo Usuario</legend>
+          <input [formControl]="newSomethingForm.controls['email']" type="text" placeholder="Email" id="mail">
+          <input [formControl]="newSomethingForm.controls['password']" type="password" placeholder="Contraseña" id="password">
+          <fieldset class="fieldset">
+            <legend>Tipo</legend>
+            <input [formControl]="newSomethingForm.controls['type']" value="0" type="radio" name="type" id="type1"><label for="type1">Alumno</label>
+            <input [formControl]="newSomethingForm.controls['type']" value="1" type="radio" name="type" id="type2"><label for="type2">Profesor</label>
+            <input [formControl]="newSomethingForm.controls['type']" value="2" type="radio" name="type" id="type3"><label for="type3">Administrador</label>
+          </fieldset>
+        </fieldset>
+        <div class="grid-x grid-margin-x">
+          <button type="submit" class="cell button primary">Aceptar</button>
+          <button class="cell button alert" (click)="cleanFormFields()">Limpiar</button>
+        </div>
+      </form>
+      <div class="callout success" id="successMessages" hidden>
+        <p>- Cliente dado de alta con éxito </p>
+      </div>
+      <div class="callout alert" id="alertMessages" hidden>
+          <p *ngFor="let alertMessage of alertMessages"> {{ alertMessage }} </p>
+      </div>
+    </div>
+  </div>
+
+</div>

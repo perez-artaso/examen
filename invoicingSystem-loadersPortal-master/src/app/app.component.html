@@ -1,0 +1,29 @@
+<div class="top-bar">
+  <div class="top-bar-left show-for-large">
+    <div class="logo">
+      <img src="assets/images/logo.png">
+    </div>
+  </div>
+  <div *ngIf="loaderLogged" class="top-bar-left hide-for-large">
+    <ul class="menu align-center">
+        <li class="grid-x">
+          <a class="topBarOptions cell text-center roboto" (click)="ChangePassword()"><i class="fas fa-key cell text-center"></i> Cambiar Clave</a>
+        </li>
+      <li class="grid-x">
+        <a class="topBarOptions cell text-center roboto" (click)="Logout()"><i class="fas fa-lock cell text-center"></i> Cerrar Sesión</a>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="loaderLogged" class="top-bar-right show-for-large">
+    <ul class="menu">
+        <li class="grid-x">
+          <a class="topBarOptions cell text-center roboto" (click)="ChangePassword()"><i class="fas fa-key cell text-center"></i> Cambiar Clave</a>
+        </li>
+      <li class="grid-x">
+        <a class="topBarOptions cell text-center roboto" (click)="Logout()"><i class="fas fa-lock cell text-center"></i> Cerrar Sesión</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,28 @@
+<div class="grid-container loginForm">
+  <div class="callout">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+              <div class="cell small-12">
+                <label>
+                  <i class="far fa-envelope"></i>
+                  Mail
+                  <input [formControl]="loginForm.controls['email']" type="text">
+                </label>
+              </div>
+              <div class="cell small-12">
+                  <label>
+                    <i class="fas fa-key"></i>
+                    Contraseña
+                    <input [formControl]="loginForm.controls['password']" type="password">
+                  </label>
+                </div>
+                <div class="cell small-12">
+                  <button type="submit" class="cell primary button" [disabled]="buttonBlocked"> Login </button>
+                </div>
+            </div>
+          </div>
+        </form>
+        <app-alert-message id="errorMessages" [messages]="errorMessages" hidden></app-alert-message>
+        <app-success-message id="successMessages" [messages]="successMessages" hidden></app-success-message>
+  </div>

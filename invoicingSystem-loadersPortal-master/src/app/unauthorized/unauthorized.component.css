@@ -1,0 +1,19 @@
+.fa-lock {
+    font-size: 700%;
+    padding: 5%;
+}
+
+.denialSignContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.signMessage {
+    font-size: 400%;
+    padding: 2%;
+}
+
+.callout {
+    border: 2px black solid;
+}
